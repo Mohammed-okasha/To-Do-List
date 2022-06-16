@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* To Do List Project */
+.container {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    width: 100%;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.container .title {
+    margin-bottom: 1.25rem;
+    text-transform: capitalize;
+    color: #333;
+    border-bottom: 2px solid orangered;
+    display: inline-block;
+}
+
+    .container .form,
+    .container .tasks {
+        width: 100%;
+        margin: 0 auto 30px;
+        background-color: #eee;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+.container .tasks {
+    max-height: 270px;
+    overflow: auto;
+    box-shadow: 0 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.container .tasks::-webkit-scrollbar {
+    display: none;
+}
+
+    .container .form .input {
+        width: calc(80% - 15px);
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+    }
+
+    .container .form .add {
+        width: calc(20% - 15px);
+        border: none;
+        background-color: orangered;
+        color: #fff;
+    }
+
+    .container .form .input,
+    .container .form .add {
+        height: 40px;
+        outline: none;
+        border-radius: 5px;
+    }
+
+@media (max-width: 600px) {
+    .container .form .input,
+    .container .form .add {
+        width: 100%;
+    }
+    .container .form .input {
+        margin-bottom: 15px;
+    }
+    .container .form .add {
+        font-size: 17px;
+        letter-spacing: 1px;
+    }
+}
+
+.container .form .add,
+.container .clear {
+    cursor: pointer;
+}
+
+    .container .tasks .task {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        transition: .3s;
+    }
+
+.container .tasks > .task:not(:last-child) {
+    margin-bottom: 20px;
+}
+    
+    .container .tasks .task .delete {
+        background-color: red;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    
+    .container .tasks .task:hover {
+        background-color: rgb(0, 171, 0);
+        color: #fff;
+    }
+    
+    /* Add Done Class To Div When Click him */
+    .task.done {
+        background-color: rgb(0, 171, 0) !important;
+        color: #fff;
+    }
+
+    .container .clear {
+        width: 150px;
+        height: 40px;
+        background-color: brown;
+        color: #fff;
+        border: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: .5px;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .container .clear .tooltip {
+        position: absolute;
+        bottom: -41px; left: 50%;
+        transform: translateX(-50%);
+        background-color: #202020;
+        width: 90%; height: 90%;
+        line-height: 36px;
+        border-radius: inherit;
+        font-size: 12px; font-weight: normal;
+        display: none; opacity: 0;
+        animation: fadeIn .3s linear forwards;
+    }
+
+.container .clear:hover .tooltip {
+    display: block;
+}
+
+@keyframes fadeIn {
+    100% {opacity: 1;}
+}
